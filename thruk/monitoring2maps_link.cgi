@@ -22,20 +22,13 @@ trap 'rm -f $TMPFILE_hosts $TMPFILE_hostgroups $TMPFILE_maps_found' 0
 #--------------------------------------------------------------------------
 
 function print_html_init {
-        if [ "$format" = "text" ]
-        then
-                enc="text/ascii"
-        elif [ "$format" = "csv" ]
-        then
-                enc="text/csv"
-        fi
 
         cat <<EOM
 Cache-Control: no-store
 Pragma: no-cache
 Last-Modified: Wed, 24 Nov 2010 14:31:49 CET
 Expires: Thu, 01 Jan 1970 00:00:00 GMT
-Content-type: $enc
+Content-Type: text/html; charset=utf-8
 
 EOM
 }
@@ -47,7 +40,7 @@ function print_html_header {
 <head>
 <title>NetEye NagVis link</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="author" content="Juergen Vigna">
+<meta name="author" content="Patrick Zambelli based on concepts from Juergen Vigna">
 <meta name="language" content="en">
 
 <style>
